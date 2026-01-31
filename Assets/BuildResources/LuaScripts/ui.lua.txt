@@ -1,0 +1,32 @@
+UI = {}
+
+require("UI/UIBase")
+require("UI/gameMenu")
+
+function UI.LoadUI(uiTable)
+	local obj = Manager.UI:OpenUI(uiTable.name, uiTable.layer, uiTable.path)
+	uiTable.gameObject = obj
+	uiTable.transform = obj.transform
+	UI.FindUIComponent(uiTable, uiTable.transform);
+end
+
+function UI.FindUIComponent(ui, transform)
+	for i = 0, transform.childCount - 1 do
+		local child = transform:GetChild(i)
+		if child.tag == "UIComponent" then
+			ui:SetUIComponent(child)
+		end
+		if child.childCount > 0 then
+			UI.FindUIComponent(ui, child)
+		end
+	end
+end
+
+function UI.OpenUI(name)
+	if _G[name] ~= nil then
+		_G[name].Create()
+		Log.Info("打开[" .. name .. "]UI")
+	else
+		Log.Error("未查到[" .. name .. "]UI")
+	end
+end
