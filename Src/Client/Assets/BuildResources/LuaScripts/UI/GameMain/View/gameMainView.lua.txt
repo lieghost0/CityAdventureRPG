@@ -1,0 +1,37 @@
+local gameMainView = {}
+setmetatable(gameMainView, {__index = UIBase})
+
+function gameMainView:Create()
+	self.name = "GameMainUI"
+	self.path = "UI/GameMain/gameMain"
+end
+
+function gameMainView:SetUIComponent(child)
+
+	if child.name == "Map" then
+		gameMainView.buttonMap = child:GetComponent("Button")
+	elseif child.name == "Quest" then
+		gameMainView.buttonQuest = child:GetComponent("Button")
+	elseif child.name == "Talent" then
+		gameMainView.buttonTalent = child:GetComponent("Button")
+	elseif child.name == "Skill" then
+		gameMainView.buttonSkill = child:GetComponent("Button")
+	elseif child.name == "Partner" then
+		gameMainView.buttonPartner = child:GetComponent("Button")
+	elseif child.name == "Setting" then
+		gameMainView.buttonSetting = child:GetComponent("Button")
+	end
+end
+
+function gameMainView:Init()
+
+	Log.Info("gameMainView.Init")
+	gameMainView.buttonMap.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonMap) end)
+	gameMainView.buttonQuest.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonQuest) end)
+	gameMainView.buttonTalent.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonTalent) end)
+	gameMainView.buttonSkill.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonSkill) end)
+	gameMainView.buttonPartner.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonPartner) end)
+	gameMainView.buttonSetting.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonSetting) end)
+end
+
+return gameMainView

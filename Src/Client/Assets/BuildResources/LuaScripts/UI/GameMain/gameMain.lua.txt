@@ -1,0 +1,28 @@
+gameMain = {}
+local UITable = require("UI/GameMain/View/gameMainView")
+
+function gameMain:Create()
+	local ui = {}
+	setmetatable(ui, {__index = UITable})
+	ui:Create()
+	ui.layer = 1
+	UI.LoadUI(ui)
+	ui:OnOpen()
+	return ui
+end
+
+function UITable:OnOpen()
+	self:Init()
+end
+
+function gameMain.Init()
+	Manager.Battle:StartBattle()
+end
+
+function UITable:ButtonClickHandler(btn)
+	if btn == self.buttonMap then
+		gameMain.Init()
+	elseif btn == self.buttonQuest then
+		-- Manager.UI.OpenUI("loadGame")
+	end
+end

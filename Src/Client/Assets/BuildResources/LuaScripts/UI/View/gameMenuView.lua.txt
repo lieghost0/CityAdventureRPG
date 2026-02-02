@@ -1,0 +1,28 @@
+local gameMenuView = {}
+setmetatable(gameMenuView, {__index = UIBase})
+
+function gameMenuView:Create()
+	self.name = "GameMenuUI"
+	self.path = "UI/gameMenu"
+end
+
+function gameMenuView:SetUIComponent(child)
+	if child.name == "NewGame" then
+		gameMenuView.buttonNewGame = child:GetComponent("Button")
+	elseif child.name == "LoadGame" then
+		gameMenuView.buttonLoadGame = child:GetComponent("Button")
+	elseif child.name == "Setting" then
+		gameMenuView.buttonSetting = child:GetComponent("Button")
+	elseif child.name == "ExitGame" then
+		gameMenuView.buttonExitGame = child:GetComponent("Button")
+	end
+end
+
+function gameMenuView:Init()
+	  gameMenuView.buttonNewGame.onClick:AddListener(function() self:ButtonClickHandler(gameMenuView.buttonNewGame) end)
+	  gameMenuView.buttonLoadGame.onClick:AddListener(function() self:ButtonClickHandler(gameMenuView.buttonLoadGame) end)
+	  gameMenuView.buttonSetting.onClick:AddListener(function() self:ButtonClickHandler(gameMenuView.buttonSetting) end)
+	  gameMenuView.buttonExitGame.onClick:AddListener(function() self:ButtonClickHandler(gameMenuView.buttonExitGame) end)
+end
+
+return gameMenuView;

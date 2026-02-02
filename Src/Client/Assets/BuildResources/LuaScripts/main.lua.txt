@@ -1,0 +1,9 @@
+Manager = CS.Framework.Manager
+Log = CS.Framework.LogUtil
+
+require("ui")
+
+function StartGame()
+
+	UI.OpenUI("gameMenu")
+end
