@@ -1,4 +1,0 @@
-version:0.0.1
-Assets/BuildResources/LuaScripts/main.lua.txt|luascripts/main.lua.txt.ab|9fd7fbe8eddf516f4f005b2e447ccedb
-Assets/BuildResources/LuaScripts/StaticData/config.lua.txt|luascripts/staticdata/config.lua.txt.ab|d41d8cd98f00b204e9800998ecf8427e
-Assets/BuildResources/UI/Prefabs/Cube.prefab|ui/prefabs/cube.prefab.ab|47e60c7379efa17d1a201db78356793a
