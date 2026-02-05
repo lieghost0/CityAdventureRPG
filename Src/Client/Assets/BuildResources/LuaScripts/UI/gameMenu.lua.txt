@@ -7,13 +7,11 @@ function gameMenu:Create()
 	ui:Create()
 	ui.layer = 1
 	UI.LoadUI(ui)
-	ui:OnOpen()
+	ui:Init()
 	return ui
 end
 
-function UITable:OnOpen()
-	self:Init()
-end
+
 
 function UITable:ButtonClickHandler(btn)
 	if btn == self.buttonNewGame then
@@ -22,4 +20,11 @@ function UITable:ButtonClickHandler(btn)
 	elseif btn == self.buttonLoadGame then
 		-- Manager.UI.OpenUI("loadGame")
 	end
+end
+
+function Destroy()
+	UITable.buttonNewGame.onClick:RemoveAllListeners()
+	UITable.buttonLoadGame.onClick:RemoveAllListeners()
+	UITable.buttonSetting.onClick:RemoveAllListeners()
+	UITable.buttonExitGame.onClick:RemoveAllListeners()
 end

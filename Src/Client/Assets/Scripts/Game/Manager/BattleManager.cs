@@ -26,7 +26,8 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle()
     {
-        if(enemyTransforms == null || enemyTransforms.Length == 0)
+        mapId = 1;
+        if (enemyTransforms == null || enemyTransforms.Length == 0)
         {
             Transform[] child = GameObject.Find("Enemys").GetComponentsInChildren<Transform>(false);
             enemyTransforms = new Transform[child.Length - 1];

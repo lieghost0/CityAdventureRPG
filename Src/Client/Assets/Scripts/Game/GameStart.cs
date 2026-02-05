@@ -9,6 +9,7 @@ public class GameStart : MonoBehaviour
 {
     public GameMode GameMode;
     public bool OpenLog;
+    private Action startAction;
     void Start()
     {
         Manager.Event.Subscribe((int)GameEvent.GameInit, GameInit);
@@ -34,14 +35,17 @@ public class GameStart : MonoBehaviour
     {
         Manager.Lua.StartLua("main");
 
-        Manager.Lua.LuaEnv.Global.Get<Action>("StartGame")?.Invoke();
+        startAction = Manager.Lua.LuaEnv.Global.Get<Action>("StartGame");
+        startAction?.Invoke();
 
         Manager.Pool.CreateGameObjectPool(AppConfig.UIPool, 600);
+        Manager.Pool.CreateGameObjectPool(AppConfig.EnemyPool, 600);
         Manager.Pool.CreateAssetPool(AppConfig.AssetBundlePool, 600);
     }
 
     private void OnApplicationQuit()
     {
+        startAction = null;
         Manager.Event.UnSubscribe((int)GameEvent.GameInit, GameInit);
         Manager.Event.UnSubscribe((int)GameEvent.StartLua, StartLua);
     }

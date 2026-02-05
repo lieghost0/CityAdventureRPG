@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Framework
@@ -18,27 +19,27 @@ namespace Framework
         public void Load()
         {
             string json = FileUtil.ReadFileText(PathUtil.DataPath + "EnemyDefine.txt");
-            this.Enemys = JsonUtility.FromJson<Dictionary<int, EnemyDefine>>(json);
+            this.Enemys = JsonConvert.DeserializeObject<Dictionary<int, EnemyDefine>>(json);
 
             json = FileUtil.ReadFileText(PathUtil.DataPath + "MapDefine.txt");
-            this.Maps = JsonUtility.FromJson<Dictionary<int, MapDefine>>(json);
+            this.Maps = JsonConvert.DeserializeObject<Dictionary<int, MapDefine>>(json);
 
             json = FileUtil.ReadFileText(PathUtil.DataPath + "SpawnRuleDefine.txt");
-            this.SpawnRules = JsonUtility.FromJson<Dictionary<int, SpawnRuleDefine>>(json);
+            this.SpawnRules = JsonConvert.DeserializeObject<Dictionary<int, SpawnRuleDefine>>(json);
         }
 
         public IEnumerator LoadAsync()
         {
             string json = FileUtil.ReadFileText(PathUtil.DataPath + "EnemyDefine.txt");
-            this.Enemys = JsonUtility.FromJson<Dictionary<int, EnemyDefine>>(json);
+            this.Enemys = JsonConvert.DeserializeObject<Dictionary<int, EnemyDefine>>(json);
             yield return null;
 
             json = FileUtil.ReadFileText(PathUtil.DataPath + "MapDefine.txt");
-            this.Maps = JsonUtility.FromJson<Dictionary<int, MapDefine>>(json);
+            this.Maps = JsonConvert.DeserializeObject<Dictionary<int, MapDefine>>(json);
             yield return null;
 
             json = FileUtil.ReadFileText(PathUtil.DataPath + "SpawnRuleDefine.txt");
-            this.SpawnRules = JsonUtility.FromJson<Dictionary<int, SpawnRuleDefine>>(json);
+            this.SpawnRules = JsonConvert.DeserializeObject<Dictionary<int, SpawnRuleDefine>>(json);
             yield return null;
         }
     }

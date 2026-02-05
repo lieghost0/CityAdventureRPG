@@ -31,6 +31,7 @@ namespace Framework
             m_LuaEnv.DoString(Manager.Lua.GetLuaScript(luaName), luaName, m_ScriptEnv);
             m_ScriptEnv.Get("Update", out m_LuaUpdate);
             m_ScriptEnv.Get("OnInit", out m_LuaInit);
+            m_ScriptEnv.Get("Destroy", out m_LuaDestroy);
 
             m_LuaInit?.Invoke();
         }
@@ -57,6 +58,7 @@ namespace Framework
 
         private void OnApplicationQuit()
         {
+            m_LuaDestroy?.Invoke();
             Clear();
         }
     }

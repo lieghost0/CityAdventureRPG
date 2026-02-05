@@ -24,8 +24,6 @@ function gameMainView:SetUIComponent(child)
 end
 
 function gameMainView:Init()
-
-	Log.Info("gameMainView.Init")
 	gameMainView.buttonMap.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonMap) end)
 	gameMainView.buttonQuest.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonQuest) end)
 	gameMainView.buttonTalent.onClick:AddListener(function() self:ButtonClickHandler(gameMainView.buttonTalent) end)

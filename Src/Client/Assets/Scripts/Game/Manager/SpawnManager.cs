@@ -40,7 +40,7 @@ public class SpawnManager : MonoBehaviour
             return;
         }
         
-        Manager.Resource.LoadUIPrefab(enemyUIPath, (Object obj) =>
+        Manager.Resource.LoadUIPrefab(AppConfig.EnemyAssetName, (Object obj) =>
         {
             go = Instantiate(obj) as GameObject;
             go.transform.SetParent(parent, false);

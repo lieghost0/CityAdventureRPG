@@ -26,3 +26,12 @@ function UITable:ButtonClickHandler(btn)
 		-- Manager.UI.OpenUI("loadGame")
 	end
 end
+
+function Destroy()
+	UITable.buttonMap.onClick:RemoveAllListeners()
+	UITable.buttonQuest.onClick:RemoveAllListeners()
+	UITable.buttonTalent.onClick:RemoveAllListeners()
+	UITable.buttonSkill.onClick:RemoveAllListeners()
+	UITable.buttonPartner.onClick:RemoveAllListeners()
+	UITable.buttonSetting.onClick:RemoveAllListeners()
+end
