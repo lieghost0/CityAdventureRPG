@@ -41,6 +41,12 @@ namespace Framework
             CreatePool<AssetPool>(poolName, releaseTime);
         }
 
+        // 创建打击池
+        public void CreateHitPool(string poolName, float releaseTime)
+        {
+            CreatePool<HitPool>(poolName, releaseTime);
+        }
+
         public Object Spawn(string poolName, string assetName)
         {
             if (m_Pools.TryGetValue(poolName, out PoolBase pool))

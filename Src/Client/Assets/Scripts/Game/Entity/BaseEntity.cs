@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEntity
+namespace Entity
 {
-    public int id;
-    public string name;
-
-    public BaseEntity(int id, string name)
+    public class BaseEntity
     {
-        this.id = id;
-        this.name = name;
+        public int id;
+        public string name;
+
+        public IEntityController Controller;
+
+        public BaseEntity(int id, string name)
+        {
+            this.id = id;
+            this.name = name;
+        }
     }
 }

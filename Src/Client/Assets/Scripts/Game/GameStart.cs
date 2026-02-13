@@ -41,6 +41,7 @@ public class GameStart : MonoBehaviour
         Manager.Pool.CreateGameObjectPool(AppConfig.UIPool, 600);
         Manager.Pool.CreateGameObjectPool(AppConfig.EnemyPool, 600);
         Manager.Pool.CreateAssetPool(AppConfig.AssetBundlePool, 600);
+        Manager.Pool.CreateAssetPool(AppConfig.HitPool, 600);
     }
 
     private void OnApplicationQuit()

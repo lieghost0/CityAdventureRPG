@@ -1,45 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using Define;
+using Entity;
 using Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIEnemy : MonoBehaviour
+namespace UI
 {
-    public Slider hP;
-    public Text textHp;
-    public Text textMaxHp;
-    public Text enemyName;
-    public Image image;
-
-    public Enemy enemy;
-    public EnemyDefine enemyDefine;
-
-    public string AssetName;
-
-    public void Init(int enemyId, string AssetName)
+    public class UIEnemy : MonoBehaviour
     {
-        this.AssetName = AssetName;
-        if(Manager.Data.Enemys.TryGetValue(enemyId, out enemyDefine))
+        public Slider HP;
+        public Text TextHp;
+        public Text TextMaxHp;
+        public Text EnemyName;
+        public Image Image;
+
+        public Enemy Enemy;
+        public EnemyDefine EnemyDefine;
+
+        public string AssetName;
+
+        public void Init(int entityId, int enemyId, string AssetName)
         {
-            enemy = new Enemy(enemyId, enemyDefine.Name, enemyDefine.MaxHP);
-            hP.maxValue = enemyDefine.MaxHP;
-            hP.value = enemy.hp;
-            textMaxHp.text = string.Format("/{0:0}", enemyDefine.MaxHP);
-            textHp.text = string.Format("/{0:0}", enemy.hp.ToString());
-            enemyName.text = enemy.name;
-            if(!string.IsNullOrEmpty(enemyDefine.EnemySprite))
+            this.AssetName = AssetName;
+            if (Manager.Data.Enemys.TryGetValue(enemyId, out EnemyDefine))
             {
-                Manager.Resource.LoadSprite(enemyDefine.EnemySprite, (Object obj) =>
+                Enemy = new Enemy(entityId, EnemyDefine);
+                HP.maxValue = EnemyDefine.MaxHP;
+                //HP.value = Enemy.Attributes.HP;
+                HP.value = 10;
+                TextMaxHp.text = string.Format("/{0:0}", EnemyDefine.MaxHP);
+                //TextHp.text = string.Format("/{0:0}", Enemy.Attributes.HP.ToString());
+                TextHp.text = string.Format("/{0:0}", 10.ToString());
+                EnemyName.text = Enemy.name;
+                if (!string.IsNullOrEmpty(EnemyDefine.EnemySprite))
                 {
-                    image.overrideSprite = obj as Sprite;
-                });
+                    Manager.Resource.LoadSprite(EnemyDefine.EnemySprite, (Object obj) =>
+                    {
+                        Image.overrideSprite = obj as Sprite;
+                    });
+                }
             }
         }
-    }
 
-    void Death()
-    {
-        Manager.Pool.UnSpawn(AppConfig.EnemyPool, AssetName, this.gameObject);
+        private void Update()
+        {
+            if (this.TextHp != null) TextHp.text = string.Format("/{0:0}", 10.ToString());
+        }
+
+        public void Death()
+        {
+            Manager.Pool.UnSpawn(AppConfig.EnemyPool, AssetName, gameObject);
+        }
     }
 }

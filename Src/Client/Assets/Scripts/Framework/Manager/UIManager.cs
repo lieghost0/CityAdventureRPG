@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +15,12 @@ namespace Framework
         // UI
         Dictionary<string, UILogic> m_UILogics = new Dictionary<string, UILogic>();
 
-        private Transform m_UIParent;
+        public Transform UIParent;
 
         private void Awake()
         {
-            m_UIParent = GameObject.FindGameObjectWithTag("GamePanel")?.transform;
-            Transform[] layers = m_UIParent.GetComponentsInChildren<Transform>(false);
+            UIParent = GameObject.FindGameObjectWithTag("GamePanel")?.transform;
+            Transform[] layers = UIParent.GetComponentsInChildren<Transform>(false);
             
             for (int i = 1; i < layers.Length; i++)
             {
@@ -44,7 +45,7 @@ namespace Framework
             GameObject ui = null;
             
             string uiPath = PathUtil.GetUIPrefabPath(uiName);
-            Object uiObj = Manager.Pool.Spawn("UI", uiPath);
+            Object uiObj = Manager.Pool.Spawn(AppConfig.UIPool, uiPath);
             Transform parent = GetUILayer(layer);
             if (uiObj != null)
             {
@@ -93,6 +94,22 @@ namespace Framework
             {
                 m_UILogics[uiName] = uiLogic;
             }
+        }
+
+        public void CreateUserUI(Transform parent)
+        {
+            GameObject go = null;
+
+            Manager.Resource.LoadUIPrefab("UIPlayer", (Object obj) =>
+            {
+                go = Instantiate(obj) as GameObject;
+                go.transform.SetParent(parent, false);
+
+                UIPlayer uiPlayer = go.AddComponent<UIPlayer>();
+                //uiPlayer.Init(enemyId, enemyUIPath);
+                EntityController ec = go.AddComponent<EntityController>();
+                User.Instance.player.Controller = ec;
+            });
         }
     }
 }

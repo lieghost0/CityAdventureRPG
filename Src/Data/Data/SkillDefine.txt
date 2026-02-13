@@ -1,0 +1,26 @@
+{
+  "10001": {
+    "ID": 10001,
+    "Name": "普通攻击",
+    "Description": "平平无奇的攻击",
+    "SkillType": "Normal",
+    "CD": 5.0,
+    "MPCost": 0,
+    "BasicDamage": 10.0
+  },
+  "10002": {
+    "ID": 10002,
+    "Name": "竖劈",
+    "SkillType": "Skill"
+  },
+  "10003": {
+    "ID": 10003,
+    "Name": "直刺",
+    "SkillType": "Skill"
+  },
+  "10004": {
+    "ID": 10004,
+    "Name": "格挡",
+    "SkillType": "Skill"
+  }
+}

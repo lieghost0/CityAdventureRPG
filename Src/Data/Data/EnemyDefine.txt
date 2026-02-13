@@ -10,6 +10,9 @@
     "Description": "最小、最常见的工蚁。脆弱但数量庞大。",
     "AI": "AIMonsterPassive",
     "InitLevel": 1,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 10.0,
     "MaxMP": 0.0,
     "VIT": 1.0,
@@ -33,6 +36,9 @@
     "Description": "体型更大的工蚁，颚部更强，能搬运重物。",
     "AI": "AIMonsterPassive",
     "InitLevel": 1,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 20.0,
     "MaxMP": 0.0,
     "VIT": 2.0,
@@ -56,6 +62,9 @@
     "Description": "蚂蚁中的战斗专家。攻击性强，配有锋利的大颚。",
     "AI": "AIMonsterPassive",
     "InitLevel": 1,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 40.0,
     "MaxMP": 0.0,
     "VIT": 4.0,
@@ -79,6 +88,9 @@
     "Description": "驻守在巢穴关键位置。甲壳坚硬，不会后退。",
     "AI": "AIMonsterPassive",
     "InitLevel": 1,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 50.0,
     "MaxMP": 0.0,
     "VIT": 5.0,
@@ -102,6 +114,9 @@
     "Description": "体型庞大的蚂蚁，仅凭尺寸就构成严重威胁。行动缓慢但力量强大。",
     "AI": "AIMonsterPassive",
     "InitLevel": 1,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 80.0,
     "MaxMP": 0.0,
     "VIT": 8.0,
@@ -125,6 +140,9 @@
     "Description": "能分泌灼热液体或拥有火红色甲壳。其咬伤会引发灼痛。",
     "AI": "AIMonsterPassive",
     "InitLevel": 1,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 30.0,
     "MaxMP": 20.0,
     "VIT": 3.0,
@@ -148,6 +166,9 @@
     "Description": "通过螫针注入强效神经毒素。能快速麻痹猎物。",
     "AI": "AIMonsterPassive",
     "InitLevel": 1,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 30.0,
     "MaxMP": 15.0,
     "VIT": 3.0,
@@ -170,6 +191,9 @@
     "Description": "蚁群的核心。虽无法移动，但不断产卵并指挥着整个群体意识。",
     "AI": "AIBoss",
     "InitLevel": 10,
+    "SkillIds": [
+      10001
+    ],
     "MaxHP": 150.0,
     "MaxMP": 100.0,
     "VIT": 15.0,

@@ -212,11 +212,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeaa5b4a93776bb4d9555f45c7abd88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hP: {fileID: 8408494421135739794}
-  textHp: {fileID: 8408494420247808513}
-  textMaxHp: {fileID: 3516724434778012167}
-  enemyName: {fileID: 8408494421921105536}
-  image: {fileID: 8408494421697874313}
+  HP: {fileID: 8408494421135739794}
+  TextHp: {fileID: 8408494420247808513}
+  TextMaxHp: {fileID: 3516724434778012167}
+  EnemyName: {fileID: 8408494421921105536}
+  Image: {fileID: 8408494421697874313}
   AssetName: 
 --- !u!1 &8408494420858334427
 GameObject:

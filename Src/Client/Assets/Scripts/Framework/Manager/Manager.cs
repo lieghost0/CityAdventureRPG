@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 namespace Framework
@@ -54,6 +55,12 @@ namespace Framework
             get { return _spawn; }
         }
 
+        private static PopupTextManager _popup;
+        public static PopupTextManager Popup
+        {
+            get { return _popup; }
+        }
+
         private void Awake()
         {
             _resource = gameObject.AddComponent<ResourceManager>();
@@ -64,6 +71,7 @@ namespace Framework
             _data = gameObject.AddComponent<DataManager>();
             _battle = gameObject.AddComponent<BattleManager>();
             _spawn = gameObject.AddComponent<SpawnManager>();
+            _popup = gameObject.AddComponent<PopupTextManager>();
         }
     }
 }

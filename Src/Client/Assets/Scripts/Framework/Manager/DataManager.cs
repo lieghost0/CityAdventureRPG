@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Define;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Framework
         public Dictionary<int, EnemyDefine> Enemys = new Dictionary<int, EnemyDefine>();
         public Dictionary<int, MapDefine> Maps = new Dictionary<int, MapDefine>();
         public Dictionary<int, SpawnRuleDefine> SpawnRules = new Dictionary<int, SpawnRuleDefine>();
+        public Dictionary<int, SkillDefine> Skills = new Dictionary<int, SkillDefine>();
 
         private void Start()
         {
@@ -26,6 +28,9 @@ namespace Framework
 
             json = FileUtil.ReadFileText(PathUtil.DataPath + "SpawnRuleDefine.txt");
             this.SpawnRules = JsonConvert.DeserializeObject<Dictionary<int, SpawnRuleDefine>>(json);
+
+            json = FileUtil.ReadFileText(PathUtil.DataPath + "SkillDefine.txt");
+            this.Skills = JsonConvert.DeserializeObject<Dictionary<int, SkillDefine>>(json);
         }
 
         public IEnumerator LoadAsync()
@@ -40,6 +45,10 @@ namespace Framework
 
             json = FileUtil.ReadFileText(PathUtil.DataPath + "SpawnRuleDefine.txt");
             this.SpawnRules = JsonConvert.DeserializeObject<Dictionary<int, SpawnRuleDefine>>(json);
+            yield return null;
+
+            json = FileUtil.ReadFileText(PathUtil.DataPath + "SkillDefine.txt");
+            this.Skills = JsonConvert.DeserializeObject<Dictionary<int, SkillDefine>>(json);
             yield return null;
         }
     }

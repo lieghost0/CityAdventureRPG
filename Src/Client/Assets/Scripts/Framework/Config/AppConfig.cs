@@ -12,6 +12,12 @@ namespace Framework
 
         public static string EnemyPool = "Enemy";
 
+        public static string HitPool = "Hit";
+
+        public static string UIPopupPool = "UIPopup";
+
         public static string EnemyAssetName = "UIEnemy";
+
+        public static string DamagePopupUIName = "UIDamagePopupText";
     }
 }
