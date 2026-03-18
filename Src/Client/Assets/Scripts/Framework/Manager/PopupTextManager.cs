@@ -25,6 +25,8 @@ namespace Framework
 
                 UIPopupText popupText = ui.GetComponent<UIPopupText>();
                 popupText.InitPopup(damageType, damage, isCrit, uiPath);
+                ui.SetActive(true);
+                return;
             }
 
             Manager.Resource.LoadUIPrefab(AppConfig.DamagePopupUIName, (Object obj) =>

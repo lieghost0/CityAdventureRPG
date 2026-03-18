@@ -32,7 +32,7 @@ namespace UI
                 HP.value = 10;
                 TextMaxHp.text = string.Format("/{0:0}", EnemyDefine.MaxHP);
                 //TextHp.text = string.Format("/{0:0}", Enemy.Attributes.HP.ToString());
-                TextHp.text = string.Format("/{0:0}", 10.ToString());
+                TextHp.text = string.Format("{0:0}", 10.ToString());
                 EnemyName.text = Enemy.name;
                 if (!string.IsNullOrEmpty(EnemyDefine.EnemySprite))
                 {
@@ -46,7 +46,7 @@ namespace UI
 
         private void Update()
         {
-            if (this.TextHp != null) TextHp.text = string.Format("/{0:0}", 10.ToString());
+            if (this.TextHp != null) TextHp.text = string.Format("{0:0}", 10.ToString());
         }
 
         public void Death()

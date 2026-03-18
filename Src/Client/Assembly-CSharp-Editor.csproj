@@ -61,12 +61,12 @@
     <Compile Include="Assets\XLua\Src\Editor\Hotfix.cs" />
     <Compile Include="Assets\XLua\Examples\13_BuildFromCLI\Editor\BuildFromCLI.cs" />
     <Compile Include="Assets\Scripts\Editor\BuildTool.cs" />
+    <Compile Include="Assets\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
     <Compile Include="Assets\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.cs" />
     <Compile Include="Assets\XLua\Src\Editor\Report.cs" />
     <Compile Include="Assets\XLua\Src\Editor\TemplateRef.cs" />
     <Compile Include="Assets\XLua\Editor\ExampleConfig.cs" />
     <Compile Include="Assets\XLua\Src\Editor\Generator.cs" />
-    <Compile Include="Assets\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />

@@ -14,10 +14,20 @@ public class UIPopupText : MonoBehaviour
     public Text TextHeal;
     public float floatTime = 0.5f;
 
+    Vector3 originPosition;
+
     string assetName;
 
     internal void InitPopup(DamageType damageType, float damage, bool isCrit, string assetName)
     {
+        if (originPosition == Vector3.zero)
+        {
+            originPosition = this.transform.position;
+        }
+        else
+        {
+            this.transform.position = originPosition;
+        }
         this.assetName = assetName;
         string text = damage.ToString("0");
         switch (damageType)
@@ -58,9 +68,9 @@ public class UIPopupText : MonoBehaviour
         }
         float time = Random.Range(0f, 0.5f) + floatTime;
 
-        float height = Random.Range(0.5f, 1f);
-        float disperse = Random.Range(-0.5f, 0.5f);
-        disperse += Mathf.Sign(disperse) * 0.3f;
+        float height = Random.Range(10f, 20f);
+        float disperse = Random.Range(-5f, 5f);
+        disperse += Mathf.Sign(disperse) * 2f;
 
         LeanTween.moveX(this.gameObject, this.transform.position.x + disperse, time);
         LeanTween.moveZ(this.gameObject, this.transform.position.z + disperse, time);
